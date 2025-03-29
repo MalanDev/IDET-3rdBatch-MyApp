@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import lk.malandev.myapp.databinding.FragmentSecondBinding
+import androidx.navigation.fragment.navArgs
 
 class SecondFragment : Fragment() {
 
