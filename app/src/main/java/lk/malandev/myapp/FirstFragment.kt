@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.os.bundleOf
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import lk.malandev.myapp.databinding.FragmentFirstBinding
@@ -21,6 +22,9 @@ class FirstFragment : Fragment() {
 
     }
 
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,8 +34,23 @@ class FirstFragment : Fragment() {
 
         binding.btnNext.setOnClickListener {
 
-           findNavController().navigate(R.id.action_firstFragment_to_secondFragment)
+          val name = binding.editTextName.text.toString()
+            val age = binding.editTextAge.text.toString()
+            val email = binding.editTextEmail.text.toString()
+//
+//            val args = bundleOf(
+//                "name" to name,
+//                "age" to age,
+//                "email" to email
+//            )
+//
+//           findNavController().navigate(R.id.action_firstFragment_to_secondFragment,args)
+//
+            val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(name, age, email)
+            findNavController().navigate(action)
         }
+
+
 
         return binding.root
 
