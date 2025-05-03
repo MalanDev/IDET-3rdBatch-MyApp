@@ -1,5 +1,5 @@
 
-package lk.malandev.myapp
+package lk.malandev.myapp.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.tabs.TabLayoutMediator
-import lk.malandev.myapp.bottom_bar.FreindsFragment
-import lk.malandev.myapp.bottom_bar.HomeFragment
-import lk.malandev.myapp.bottom_bar.SettingsFragment
+import lk.malandev.myapp.presentation.ui.bottom_bar.FreindsFragment
+import lk.malandev.myapp.presentation.ui.bottom_bar.HomeFragment
+import lk.malandev.myapp.presentation.ui.bottom_bar.SettingsFragment
 import lk.malandev.myapp.databinding.ActivityTabLayouBinding
 
 class TabLayouActivity : AppCompatActivity() {

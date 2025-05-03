@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="lk.malandev.myapp.bottom_bar.HomeFragment"
+        android:name="lk.malandev.myapp.presentation.ui.bottom_bar.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/freindsFragment"
-        android:name="lk.malandev.myapp.bottom_bar.FreindsFragment"
+        android:name="lk.malandev.myapp.presentation.ui.bottom_bar.FreindsFragment"
         android:label="fragment_freinds"
         tools:layout="@layout/fragment_freinds" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="lk.malandev.myapp.bottom_bar.SettingsFragment"
+        android:name="lk.malandev.myapp.presentation.ui.bottom_bar.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

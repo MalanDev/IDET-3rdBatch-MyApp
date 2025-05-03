@@ -1,4 +1,4 @@
-package lk.malandev.myapp.bottom_bar
+package lk.malandev.myapp.presentation.ui.bottom_bar
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

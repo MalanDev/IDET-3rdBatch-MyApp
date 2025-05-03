@@ -1,4 +1,4 @@
-package lk.malandev.myapp
+package lk.malandev.myapp.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
