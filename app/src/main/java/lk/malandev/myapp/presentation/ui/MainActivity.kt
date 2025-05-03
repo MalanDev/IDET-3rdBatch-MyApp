@@ -1,42 +1,49 @@
-package lk.malandev.myapp
-import android.app.Activity
+package lk.malandev.myapp.presentation.ui
 import android.content.Context
-import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
-import android.speech.RecognizerIntent
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.FragmentContainerView
+import dagger.hilt.android.AndroidEntryPoint
+import lk.malandev.myapp.presentation.viewmodels.MainViewModel
 import lk.malandev.myapp.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     enum class AnswerEnum{YES,NO,MAYBE,NOT}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        mainViewModel.getData()
+
+
 
         var secondFragment = SecondFragment()
 
@@ -46,15 +53,18 @@ class MainActivity : AppCompatActivity() {
         first1 = "first11"
       //  first2 = "first22"
 
+        binding.fragmentContainerView.setOnClickListener {
+
+        }
+
+        binding.btnOk.setOnClickListener {
+
+        }
 
         var firstName: String? = null
 
 
         var fullName:String = firstName ?: "abc"
-
-
-
-
 
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
             override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
@@ -134,7 +144,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun answer(answerParameter:AnswerEnum){
+    private fun answer(answerParameter: AnswerEnum){
         when (answerParameter) {
             AnswerEnum.YES -> {
 
@@ -145,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             AnswerEnum.MAYBE ->{
 
             }
-            AnswerEnum.NOT->{
+            AnswerEnum.NOT ->{
 
             }
         }

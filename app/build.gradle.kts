@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.navigation.safe.args.kotlin)
+    alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.android.dagger.hilt)
 }
 
 android {
@@ -40,6 +43,8 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
+
 }
 
 dependencies {
@@ -54,4 +59,24 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    //Dagger Hilt
+    implementation(libs.android.dagger.hilt)
+    ksp(libs.android.dagger.hilt.compiler)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
+
+    //Retrofit
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.retrofit.converter.gson)
+
+    //Glide
+    implementation(libs.github.bumptech.glide)
+
+    //Swiperefreshlayout
+    implementation(libs.androidx.swiperefreshlayout)
+
 }

@@ -7,21 +7,28 @@
 
     <fragment
         android:id="@+id/firstFragmentNavigation"
-        android:name="lk.malandev.myapp.FirstFragment"
+        android:name="lk.malandev.myapp.presentation.ui.FirstFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" >
         <action
             android:id="@+id/action_firstFragment_to_secondFragment"
-            app:destination="@id/secondFragmentNavigation" />
+            app:destination="@id/secondFragmentNavigation"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/secondFragmentNavigation"
-        android:name="lk.malandev.myapp.SecondFragment"
+        android:name="lk.malandev.myapp.presentation.ui.SecondFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_second" >
-
         <argument
-            android:name="id"
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="age"
+            app:argType="string" />
+        <argument
+            android:name="email"
             app:argType="string" />
     </fragment>
 </navigation>
